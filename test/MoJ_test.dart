@@ -6,16 +6,19 @@ import 'package:test/test.dart';
 
 void main() {
   group('MoJ methods', () {
+    print('num MoJ ${MoJ.lib()}');
 
     test(' => tag() ', () {
       expect(MoJ.tag(':tv:'), isNot(':tv:'));
+      expect(MoJ.tag('::tv::'), isNot(':tv:'));
       expect(MoJ.tag(':vt:'), equals(':vt:'));
     });
 
     test(' => parse() ', () {
-      expect(MoJ.parse('I :heart: watching :tv:'), equals('I ${MoJ.tag(':heart:')} watching ${MoJ.tag(':tv:')}'));
-      expect(MoJ.parse('I :heart: watching :tv:'), equals('I ❤️ watching 📺'));
-      expect(MoJ.parse('I :heart: watching :vt:'), equals( 'I ❤️ watching :vt:'));
+      expect(MoJ.parse('I :heart: my :computer:'),
+          equals('I ${MoJ.tag(':heart:')} my ${MoJ.tag(':computer:')}'));
+      expect(MoJ.parse('I :heart: my :computer:'), equals('I ❤️ my 💻'));
+      expect(MoJ.parse('I :heart: my :vt:'), equals('I ❤️ my :vt:'));
     });
   });
 }

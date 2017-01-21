@@ -1,19 +1,18 @@
 # MoJ
 
-A library for Dart developers. It is awesome.
+A simple helper to display [:emojis:](http://www.webpagefx.com/tools/emoji-cheat-sheet/) in dart managed text. 
+
+[More about emojis](https://en.wikipedia.org/wiki/Emoji)
 
 ## Usage
 
-A simple usage example:
+```dart
+import 'package:moj/moj.dart';
 
-    import 'package:MoJ/MoJ.dart';
+main() {
+  print(MoJ.tag(':heart:')); // prints ❤️
+  print(MoJ.parse('I :heart: my :computer:')); // prints I ❤️ my 💻.
+}
+```
 
-    main() {
-      var awesome = new Awesome();
-    }
 
-## Features and bugs
-
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme

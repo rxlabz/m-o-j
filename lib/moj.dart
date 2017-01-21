@@ -6,7 +6,7 @@ library MoJ;
 ///
 class MoJ {
 
-  static final RegExp rgx = new RegExp(r'(:[a-z_]+:)');
+  static final RegExp rgx = new RegExp(r'(:{1}[a-z_]+:{1})');
 
   /// returns emoji for :tag:
   /// @param tag => :tag:
@@ -912,5 +912,9 @@ class MoJ {
     "small_orange_diamond": "🔸",
     "small_blue_diamond": "🔹"
   };
+
+  MoJ(){
+    print('num  _lib ${_lib.length}');
+  }
 }
 
