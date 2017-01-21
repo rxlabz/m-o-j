@@ -12,9 +12,13 @@ class MoJ {
   /// @param tag => :tag:
   /// @return emoji char
   ///
-  static tag(String tag) {
-    final m = tag.replaceAll(':', '');
-    return _lib.containsKey(m) ? _lib[m] : tag;
+  static tag(String text) {
+    if( !rgx.hasMatch(text) /*|| rgx.stringMatch(tag) != tag*/) return text;
+
+    String m = rgx.stringMatch(text);
+    final tag = m.replaceAll(':', '');
+    //print('MoJ.tag => m ${m}');
+    return _lib.containsKey(tag) ? text.replaceFirst(m, _lib[tag]) : text;
   }
 
   /// replace all :tags: in a text by corresponding emojis
